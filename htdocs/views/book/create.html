@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- file: views/professor/create.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<style>
+   #navlist{
+     background: #2f3d5d; /*2f3d5d*/ /*2BA6CB*/ /*barra de navegacion*/
+     height: 40px;  
+     line-height: 35px;
+     margin: 0 auto 5px auto;
+     text-align: left;
+     border-radius: 5px;
+   }
+   #navlist li
+    {
+      display: inline;
+      list-style-type: none;
+      padding-left: 30px;
+      padding-right: 10px;
+     }
+ 
+     #navlist a:link{
+      text-decoration: none;
+     }
+ </style>
+</head>
+<body>
+   <div class="row">
+      <div class="twelve columns">
+        <ul id="navlist">
+            <li><a href="/book" style="color:lightblue">Books</a></li>
+            <li><a href="/author" style="color:lightblue">Authors</a></li>
+            <li><a href="/publisher" style="color:lightblue">Publishers</a></li>
+        </ul>    
+      </div>
+    </div>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+    <h2>{{title}}</h2>
+    <form action="/book" method="post">
+      <div class="row">
+         <div class="six columns">
+          <label for="nameInput">Name</label>
+          <input class="u-full-width" type="text"  
+             name="name">
+         </div>
+         <div class="six columns">
+          <label for="degreeInput">Edition</label>
+          <input class="u-full-width" type="text"  
+             name="edition">
+         </div>
+      </div>
+        <div class="row">
+         <div class="six columns">
+          <label for="emailInput">Copyright</label>
+          <input class="u-full-width" type="number"  
+             name="copyright">
+         </div>
+         <div class="six columns">
+          <label for="phoneInput">Language</label>
+          <input class="u-full-width" type="text"  
+            name="language">
+         </div>
+      <div class="row">
+         <div class="six columns">
+            <label for="phoneInput">Pages</label>
+            <input class="u-full-width" type="number"  
+              name="pages">
+           </div>
+         </div>
+      </div>
+         <div class="row">
+         <div class="six columns">
+            <label for="phoneInput">Author</label>
+              <select  name="authors">
+                 {{#authors}}
+               <option value="author">{{author}}</option>
+               <input class="u-full-width" type="hidden"  
+              name="author_id" value="{{id}}">
+                  {{/authors}}
+             </select>
+           </div>
+         
+
+         <div class="six columns">
+            <label for="phoneInput">Publisher</label>
+              <select  name="authors">
+                 {{#publishers}}
+               <option value="publisher">{{publisher}}</option>
+               <input class="u-full-width" type="hidden"  
+              name="publisher_id" value="{{id}}">
+                  {{/publishers}}
+             </select>
+           </div>
+         </div>
+
+
+         <div class="row">
+            <a class="button button-primary" href="/book">Back</a>
+         </div>
+       
+     <input class="button-primary" type="submit" value="Create">
+    </form>
+   </div>
+  </div>
+ </div>
+</body>

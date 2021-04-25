@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- file: views/publisher/show.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<style>
+   #navlist{
+     background: #2f3d5d; /*2f3d5d*/ /*2BA6CB*/ /*barra de navegacion*/
+     height: 40px;  
+     line-height: 35px;
+     margin: 0 auto 5px auto;
+     text-align: left;
+     border-radius: 5px;
+   }
+   #navlist li
+    {
+      display: inline;
+      list-style-type: none;
+      padding-left: 30px;
+      padding-right: 10px;
+     }
+ 
+     #navlist a:link{
+      text-decoration: none;
+     }
+ </style>
+ </head>
+ <body>
+   <div class="row">
+     <div class="twelve columns">
+       <ul id="navlist">
+           <li><a href="/book" style="color:lightblue">Books</a></li>
+           <li><a href="/author" style="color:lightblue">Authors</a></li>
+           <li><a href="/publisher" style="color:lightblue">Publishers</a></li>
+       </ul>    
+     </div>
+   </div>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+    <h2>{{title}}</h2>
+    <form>
+     {{#publisher}}
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">Name</label>
+       <input class="u-full-width" type="text" readonly
+          name="publisher" value="{{publisher}}">
+      </div>
+      <div class="six columns">
+       <label for="countryInput">Country</label>
+       <input class="u-full-width" type="text" readonly
+          name="country" value="{{country}}">
+      </div>
+     </div>
+     <div class="row">
+      <div class="six columns">
+       <label for="foundedInput">Founded</label>
+       <input class="u-full-width" type="number" readonly
+          name="founded" value="{{founded}}">
+      </div>
+      <div class="six columns">
+       <label for="genereInput">Genere</label>
+       <input class="u-full-width" type="text" readonly
+         name="genere" value="{{genere}}">
+      </div>
+
+      
+     <table>
+      <th><label for="BooksInput">Books Title</label></th>
+      {{#books}}
+      <tr>
+         <td>
+            <a href="/book/{{id}}">
+               {{title}}
+            </a>
+         </td>
+      </tr>
+      {{/books}}
+   </table>
+   
+      <a class="button button-primary" href="/publisher">Back</a>
+     </div>
+     {{/publisher}}
+    </form>
+   </div>
+  </div>
+ </div>
+</body>

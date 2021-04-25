@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- file: views/publisher/index.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<style>
+  #navlist{
+    background: #2f3d5d; /*2f3d5d*/ /*2BA6CB*/ /*barra de navegacion*/
+    height: 40px;  
+    line-height: 35px;
+    margin: 0 auto 5px auto;
+    text-align: left;
+    border-radius: 5px;
+  }
+  #navlist li
+   {
+     display: inline;
+     list-style-type: none;
+     padding-left: 30px;
+     padding-right: 10px;
+    }
+
+    #navlist a:link{
+     text-decoration: none;
+    }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="twelve columns">
+      <ul id="navlist">
+          <li><a href="/book" style="color:lightblue">Books</a></li>
+          <li><a href="/author" style="color:lightblue">Authors</a></li>
+          <li><a href="/publisher" style="color:lightblue">Publishers</a></li>
+      </ul>    
+    </div>
+  </div>
+ <div class="container">
+  <div class="row">
+   <div style="margin-top: 10%">
+     <h2>{{title}}</h2>
+     <table><thead>
+      <tr><th>Name</th><th>Country</th><th>Founded</th>
+          <th>Genere</th><th>Actions</th></th></tr>
+      </thead><tbody>
+      {{#publishers}}
+      <tr><td>{{publisher}}</td>
+      <td>{{country}}</td>
+      <td>{{founded}}</td>
+      <td>{{genere}}</td>
+      <td>
+      <a class="button" href="publisher/{{id}}">Show</a>
+      <a class="button" href="publisher/{{id}}/edit">Edit</a>
+      <a class="button" href="publisher/{{id}}/delete">Erase</a>
+      </td>
+      </tr>
+      {{/publishers}}</tbody>
+     </table>
+     <a class="button button-primary" href="/publisher/create">New</a>
+    </div>
+   </div>
+ </div>
+</body>
